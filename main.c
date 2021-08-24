@@ -4,6 +4,7 @@
 
 int main()
 {
+    printf("Hello");
     int key;
     heap h;
     init_heap(&h, 30);
