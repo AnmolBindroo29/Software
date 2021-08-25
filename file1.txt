@@ -1,0 +1,63 @@
+def vaccum_cleaner(status_A,status_B,location_robot):
+    cost = 0
+    
+    if(location_robot =='A' and status_A == 'T'):
+        print("ROOM A ALREADY CLEAN\n")
+        print("ROBOT GOING IN ROOM B (COST+1)\n")
+        cost+=1
+        if(status_B =='T'):
+            print("ROOM B ALREADY CLEAN\n")
+            return cost
+            
+        else:
+            print("CLEANING ROOM B .(COST+1)\n")
+            cost+=1
+            return cost
+            
+    elif(location_robot =='A' and status_A == 'F'):
+        print("CLEANING ROOM A.(COST +1)\n")
+        cost+=1
+        print("ROOM A CLEANED. ROBOT GOING IN ROOM B (COST+1)\n")
+        cost+=1
+        if(status_B =='T'):
+            print("ROOM B ALREADY CLEAN\n")
+            return cost
+            
+        else:
+            print("CLEANING ROOM B .(COST+1)\n")
+            cost+=1
+            return cost
+            
+    elif(location_robot =='B' and status_B == 'T'):
+        print("ROOM B ALREADY CLEAN\n")
+        print("ROBOT GOING IN ROOM A (COST+1)\n")
+        cost+=1
+        if(status_A =='T'):
+            print("ROOM A ALREADY CLEAN\n")
+            return cost
+            
+        else:
+            print("CLEANING ROOM A .(COST+1)\n")
+            cost+=1
+            return cost
+            
+    elif(location_robot =='B' and status_B == 'F'):
+        print("CLEANING ROOM B.(COST +1)\n")
+        cost+=1
+        print("ROOM B CLEANED. ROBOT GOING IN ROOM A (COST+1)\n")
+        cost+=1
+        if(status_A =='T'):
+            print("ROOM A ALREADY CLEAN\n")
+            return cost
+        else:
+            print("CLEANING ROOM A .(COST+1)\n")
+            cost+=1
+            return cost
+
+status_A=input("IS ROOM A CLEAN?(T|F):")
+status_B=input("IS ROOM B CLEAN?(T|F):")
+location_robot=input("IS ROBOT IN ROOM A OR IN ROOM B?(A|B):")
+status_A=status_A.upper()
+status_B=status_B.upper()
+location_robot=location_robot.upper()
+print("COST:", vaccum_cleaner(status_A,status_B,location_robot))
